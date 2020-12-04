@@ -1,0 +1,27 @@
+{
+  "Id": "Policy1602322036956",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1602321977754",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::ira-shkramko5-v1/*",
+      "Principal": "*"
+    },
+    {
+      "Sid": "IPAllow",
+      "Action": "s3:*",
+      "Effect": "Deny",
+      "Resource": "arn:aws:s3:::ira-shkramko5-v1/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": "50.31.252.0/24"
+        }
+      },
+      "Principal": "*"
+    }
+  ]
+}
